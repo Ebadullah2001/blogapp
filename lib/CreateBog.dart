@@ -35,32 +35,32 @@ class _CreateBlogState extends State<CreateBlog> {
           backgroundColor: const Color(0xff111328),
         ),
         body: Container(
-          color: Color(0xff111328),
+          color: const Color(0xff111328),
           child: Column(
             children: [
               Container(
-                margin: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
                 child: HtmlEditor(
-                  htmlToolbarOptions: HtmlToolbarOptions(
-                      textStyle: TextStyle(color: Colors.white),
+                  htmlToolbarOptions: const HtmlToolbarOptions(
+                      textStyle: const TextStyle(color: Colors.white),
                       buttonColor: Colors.white,
                       toolbarType: ToolbarType.nativeGrid
                       //required to place toolbar anywhere!
                       //other options
                       ),
                   controller: controller, //required
-                  htmlEditorOptions: HtmlEditorOptions(
+                  htmlEditorOptions: const HtmlEditorOptions(
                     hint: "Your text here...",
                     //initalText: "text content initial, if any",
                   ),
-                  otherOptions: OtherOptions(
+                  otherOptions: const OtherOptions(
                     height: 700,
                   ),
                 ),
               ),
               Container(
                   // alignment: Alignment.bottomRight,
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   width: MediaQuery.of(context).size.width,
                   child: ElevatedButton(
                     child: const Text(
@@ -74,7 +74,9 @@ class _CreateBlogState extends State<CreateBlog> {
                                 RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5.0),
                         ))),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/profile');
+                    },
                   ))
             ],
           ),

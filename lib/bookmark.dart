@@ -20,13 +20,13 @@ class _BookmarkState extends State<Bookmark> {
         backgroundColor: const Color(0xff111328),
       ),
       body: Container(
-        padding: EdgeInsets.only(top: 10),
-        color: Color(0xff111328),
+        padding: const EdgeInsets.only(top: 10),
+        color: const Color(0xff111328),
         child: ListView(
           scrollDirection: Axis.vertical,
           children: [
             Container(
-              margin: EdgeInsets.only(left: 15,right: 15),
+              margin: const EdgeInsets.only(left: 15,right: 15),
               decoration: const BoxDecoration(
                   border: Border(
                     bottom: BorderSide(color: Colors.blueGrey),
@@ -37,17 +37,17 @@ class _BookmarkState extends State<Bookmark> {
 
                   width: MediaQuery.of(context).size.width * 0.15,
                 ),
-                title: Text(
+                title: const Text(
                   "Ukraine and Russia war......",
-                  style: const TextStyle(fontSize: 20, color: Colors.white),
+                  style: TextStyle(fontSize: 20, color: Colors.white),
                 ),
-                subtitle: Text(
+                subtitle: const Text(
                   "25-sep-2022",
-                  style: const TextStyle(fontSize: 10, color: Colors.blueGrey),
+                  style: TextStyle(fontSize: 10, color: Colors.blueGrey),
                 ),
                 trailing: GestureDetector(
                   onTap: (){},
-                  child: Icon(
+                  child: const Icon(
                     Icons.bookmark,
                     color: Colors.red,
                     size: 30,

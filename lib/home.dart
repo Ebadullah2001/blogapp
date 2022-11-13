@@ -9,7 +9,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -20,44 +19,11 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0xff111328),
-        title: const Text(
-          "Home",
-          style: TextStyle(fontSize: 25),
-        ),
-        actions: [
-          Padding(
-              padding: const EdgeInsets.only(right: 10),
-              child: GestureDetector(
-                onTap: () {},
-                child: const  CircleAvatar(
-                  radius: 20,
-                  backgroundImage: NetworkImage(
-                      'https://imgix.bustle.com/uploads/image/2021/10/18/a81f25ce-7b59-43f0-894f-bd3a303f7f90-the-batman-trailer-lp-today-main-211017.jpeg?w=1200&h=630&fit=crop&crop=faces&fm=jpg'),
-                ),
-              )
-
-
-              ),
-        ],
-      ),
-      body: Container(
+    return  Container(
         color: const Color(0xff111328),
         child: Column(
           children: [
-            // Container(
-            //     padding: EdgeInsets.all(15),
-            //     alignment: Alignment.centerLeft,
-            //     child: Text(
-            //       "Feed",
-            //       style: TextStyle(
-            //         fontSize: 30,
-            //         fontWeight: FontWeight.bold,
-            //         color: Colors.white,
-            //       ),
-            //     )),
+
             Container(
               margin: EdgeInsets.only(top: 15),
               height: MediaQuery.of(context).size.height * 0.05,
@@ -119,15 +85,18 @@ class _HomeState extends State<Home> {
               ),
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, '/readmore');
+              },
               child: Container(
+
                 decoration: const BoxDecoration(
                     border: Border(
                   bottom: BorderSide(color: Colors.blueGrey),
                 )),
                 padding: const EdgeInsets.all(10),
-                margin:
-                    const EdgeInsets.only(top: 10, bottom: 10, right: 10, left: 10),
+                margin: const EdgeInsets.only(
+                    top: 10, bottom: 10, right: 10, left: 10),
                 child: Column(
                   children: [
                     ClipRRect(
@@ -146,7 +115,8 @@ class _HomeState extends State<Home> {
                       alignment: Alignment.centerLeft,
                       child: const Text(
                         "Ukraine and Russia war......",
-                        style: const TextStyle(fontSize: 25, color: Colors.white),
+                        style:
+                            const TextStyle(fontSize: 25, color: Colors.white),
                       ),
                     ),
                     Container(
@@ -158,24 +128,24 @@ class _HomeState extends State<Home> {
                             padding: EdgeInsets.only(left: 8.0),
                             child: Text(
                               "25-sep-2022",
-                              style:
-                                  const TextStyle(fontSize: 15, color: Colors.blueGrey),
+                              style: const TextStyle(
+                                  fontSize: 15, color: Colors.blueGrey),
                             ),
-
                           ),
                           Row(
                             children: const [
                               Icon(Icons.thumb_up,
                                   size: 15, color: Colors.blueGrey),
-                              SizedBox(width: 5,),
+                              SizedBox(
+                                width: 5,
+                              ),
                               Text(
                                 "8",
-                                style:
-                                TextStyle(fontSize: 15, color: Colors.blueGrey),
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.blueGrey),
                               ),
                             ],
                           ),
-
                         ],
                       ),
                     )
@@ -185,61 +155,8 @@ class _HomeState extends State<Home> {
             )
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.red,
-        unselectedItemColor: Colors.white,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            backgroundColor: Color(0xff111328),
-            label: "Home",
-            icon: Icon(
-              Icons.home,
 
-              size: 30,
-            ),
-          ),
-          BottomNavigationBarItem(
-            backgroundColor: Color(0xff111328),
-            label: "bookmark",
-            icon: Icon(
-              Icons.bookmark,
 
-              size: 30,
-            ),
-          ),
-          BottomNavigationBarItem(
-            backgroundColor: Color(0xff111328),
-            label: "search",
-            icon: Icon(
-              Icons.search,
-
-              size: 30,
-            ),
-          ),
-          BottomNavigationBarItem(
-            backgroundColor: Color(0xff111328),
-            label: "Notification",
-            icon: Icon(
-              Icons.notifications,
-
-              size: 30,
-            ),
-          ),
-          BottomNavigationBarItem(
-            backgroundColor: Color(0xff111328),
-            label: "Setting",
-            icon: Icon(
-              Icons.settings,
-
-              size: 30,
-            ),
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        // selectedItemColor: Colors.amber[800],
-        onTap: _onItemTapped,
-      ),
     );
   }
 }

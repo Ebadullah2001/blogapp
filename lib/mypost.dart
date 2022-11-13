@@ -21,13 +21,15 @@ class _MypostsState extends State<Myposts> {
         backgroundColor: const Color(0xff111328),
       ),
       body: Container(
-        color: Color(0xff111328),
+        color: const Color(0xff111328),
         height: MediaQuery.of(context).size.height,
         child: SingleChildScrollView(
           child: Column(
             children: [
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, '/readmore');
+                },
                 child: Container(
                   decoration: const BoxDecoration(
                       border: Border(
@@ -56,9 +58,9 @@ class _MypostsState extends State<Myposts> {
                           right: 5,
                           child: Container(
                             child: PopupMenuButton(
-                                color: Color(0xff111328),
+                                color: const Color(0xff111328),
                                 iconSize: 30,
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.more_vert,
                                   color: Colors.white,
                                 ),
@@ -66,7 +68,7 @@ class _MypostsState extends State<Myposts> {
                                       PopupMenuItem(
                                         child: TextButton(
                                           onPressed: () {},
-                                          child: Text(
+                                          child: const Text(
                                             "Delete",
                                             style:
                                                 TextStyle(color: Colors.white),
@@ -77,7 +79,7 @@ class _MypostsState extends State<Myposts> {
                                       PopupMenuItem(
                                         child: TextButton(
                                           onPressed: () {},
-                                          child: Text(
+                                          child: const Text(
                                             "Edit",
                                             style:
                                                 TextStyle(color: Colors.white),
@@ -94,7 +96,7 @@ class _MypostsState extends State<Myposts> {
                         alignment: Alignment.centerLeft,
                         child: const Text(
                           "Ukraine and Russia war......",
-                          style: const TextStyle(
+                          style: TextStyle(
                               fontSize: 25, color: Colors.white),
                         ),
                       ),
@@ -107,7 +109,7 @@ class _MypostsState extends State<Myposts> {
                               padding: EdgeInsets.only(left: 8.0),
                               child: Text(
                                 "25-sep-2022",
-                                style: const TextStyle(
+                                style: TextStyle(
                                     fontSize: 15, color: Colors.blueGrey),
                               ),
                             ),

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -22,147 +23,118 @@ class _ProfileState extends State<Profile> {
         backgroundColor: const Color(0xff111328),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Stack(children: [
-              Container(
+        child: Container(
+          color: const Color(0xff111328),
+          child: Column(
+            children: [
+              Stack(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.only(bottomLeft: Radius.circular(40),bottomRight: Radius.circular(40),),
 
-                height: MediaQuery.of(context).size.height * 0.30,
-                width: MediaQuery.of(context).size.width,
-                child: Image.asset(
-                  "assets/1234.jpg",fit: BoxFit.cover
 
+                      child: Image.asset("assets/1234.jpg", fit: BoxFit.cover, height: MediaQuery.of(context).size.height * 0.33,
+                        width: MediaQuery.of(context).size.width,),
+                    ),
+                Container(
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(bottomLeft: Radius.circular(40),bottomRight: Radius.circular(40),)
+                  ),
+
+                  height: MediaQuery.of(context).size.height * 0.30,
+                  // width: MediaQuery.of(context).size.width,
+                  child: Column(
+                    children: [
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      const CircleAvatar(
+                        radius: 50,
+                        backgroundImage: const AssetImage('assets/bat.png'
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const Text("Ebadullah",
+                          style: TextStyle(color: Colors.white, fontSize: 30)),
+                      const Text(
+                        "Member since 2020",
+                        style: const TextStyle(color: Colors.blueGrey, fontSize: 15),
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: const [
+                            Text(
+                              "Followers 0",
+                              style: TextStyle(color: Colors.white, fontSize: 15),
+                            ),
+                            Text(
+                              "Likes 0",
+                              style: TextStyle(color: Colors.white, fontSize: 15),
+                            ),
+                            Text(
+                              "Posts 0",
+                              style: TextStyle(color: Colors.white, fontSize: 15),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
+              ]),
               Container(
 
-                // color: Color(0xff111328),
-                height: MediaQuery.of(context).size.height * 0.30,
-                // width: MediaQuery.of(context).size.width,
+                color: const Color(0xff111328),
+                height: MediaQuery.of(context).size.height * 0.60,
+                width: MediaQuery.of(context).size.width,
                 child: Column(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
-                    CircleAvatar(
-                      radius: 50,
-                      backgroundImage: NetworkImage(
-                          'https://imgix.bustle.com/uploads/image/2021/10/18/a81f25ce-7b59-43f0-894f-bd3a303f7f90-the-batman-trailer-lp-today-main-211017.jpeg?w=1200&h=630&fit=crop&crop=faces&fm=jpg'),
-                    ),
-                    SizedBox(
+                    profilePageButtons(text: "Create Blog", onPressed: () {
+                      Navigator.pushNamed(context, '/createblog');
+                    }),
+                    const SizedBox(
                       height: 10,
                     ),
-                    Text("Ebadullah",
-                        style: TextStyle(color: Colors.white, fontSize: 30)),
-                    Text(
-                      "Member since 2020",
-                      style: TextStyle(color: Colors.blueGrey, fontSize: 15),
+                    profilePageButtons(text: "My Blogs", onPressed: () {
+                      Navigator.pushNamed(context, '/myblog');
+                    }),
+                    const SizedBox(
+                      height: 10,
                     ),
-                    SizedBox(
-                      height: 30,
+                    profilePageButtons(text: "Bookmarks", onPressed: () {
+                      Navigator.pushNamed(context, '/bookmark');
+                    }),
+                    const SizedBox(
+                      height: 10,
                     ),
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Text(
-                            "Followers 0",
-                            style: TextStyle(color: Colors.white, fontSize: 15),
-                          ),
-                          Text(
-                            "Likes 0",
-                            style: TextStyle(color: Colors.white, fontSize: 15),
-                          ),
-                          Text(
-                            "Posts 0",
-                            style: TextStyle(color: Colors.white, fontSize: 15),
-                          ),
-                        ],
-                      ),
+                    profilePageButtons(
+                        text: "Edit Profile Setting", onPressed: () {
+                      Navigator.pushNamed(context, '/editprofile');
+                    }),
+                    const SizedBox(
+                      height: 10,
                     ),
+                    profilePageButtons(text: "Logout", onPressed: () {
+                      FirebaseAuth.instance.signOut().then((value){
+                        Navigator.pushNamed(context, '/');
+                      });
 
-                    // Container(
-                    //   height: MediaQuery.of(context).size.height*0.7,
-                    //   child: ListView(
-                    //     scrollDirection: Axis.vertical,
-                    //
-                    //     children: [
-                    //       Container(
-                    //         margin: EdgeInsets.only(left: 15,right: 15),
-                    //         decoration: const BoxDecoration(
-                    //             border: Border(
-                    //               bottom: BorderSide(color: Colors.blueGrey),
-                    //             )),
-                    //         child: ListTile(
-                    //           leading: Image.asset(
-                    //             'assets/1.png',
-                    //
-                    //             width: MediaQuery.of(context).size.width * 0.15,
-                    //           ),
-                    //           title: Text(
-                    //             "Ukraine and Russia war......",
-                    //             style: const TextStyle(fontSize: 20, color: Colors.white),
-                    //           ),
-                    //           subtitle: Text(
-                    //             "25-sep-2022",
-                    //             style: const TextStyle(fontSize: 10, color: Colors.blueGrey),
-                    //           ),
-                    //           trailing: PopupMenuButton(
-                    //             color: Color(0xff111328),
-                    //               iconSize: 30,
-                    //
-                    //               itemBuilder: (context) => [
-                    //                 PopupMenuItem(
-                    //                   child: Text("Delete",style: TextStyle(color: Colors.white),),
-                    //                   value: 1,
-                    //                 ),
-                    //                 PopupMenuItem(
-                    //                   child: Text("Edit",style: TextStyle(color: Colors.white),),
-                    //                   value: 2,
-                    //                 )
-                    //               ]
-                    //           )
-                    //         ),
-                    //       ),
-                    //
-                    //
-                    //     ],
-                    //   ),
-                    // )
+                    }),
                   ],
                 ),
               ),
-            ]),
-            Container(
-              color: Color(0xff111328),
-              height: MediaQuery.of(context).size.height * 0.60,
-              width: MediaQuery.of(context).size.width,
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 20,
-                  ),
-                  profilePageButtons(text: "Create Blog", onPressed: () {}),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  profilePageButtons(text: "My Blogs", onPressed: () {}),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  profilePageButtons(text: "Bookmarks", onPressed: () {}),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  profilePageButtons(text: "Edit Profile Setting", onPressed: () {}),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  profilePageButtons(text: "Logout", onPressed: () {}),
-                ],
-              ),
-            )
-          ],
+
+            ],
+          ),
         ),
       ),
     );
@@ -178,7 +150,7 @@ class profilePageButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin:EdgeInsets.only(left: 15,right: 15) ,
+      margin: const EdgeInsets.only(left: 15, right: 15),
       decoration: const BoxDecoration(
           border: Border(
         bottom: BorderSide(color: Colors.blueGrey),
@@ -189,7 +161,7 @@ class profilePageButtons extends StatelessWidget {
           onPressed: onPressed,
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(
-              Color(0xff111328),
+              const Color(0xff111328),
             ),
           ),
           child: Row(
@@ -197,9 +169,9 @@ class profilePageButtons extends StatelessWidget {
             children: [
               Text(
                 text,
-                style: TextStyle(fontSize: 20, color: Colors.white),
+                style: const TextStyle(fontSize: 20, color: Colors.white),
               ),
-              Icon(
+              const Icon(
                 Icons.arrow_forward_ios,
                 color: Colors.white,
                 size: 30,

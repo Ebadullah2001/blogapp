@@ -10,7 +10,12 @@ class Readmore extends StatefulWidget {
 }
 
 class _ReadmoreState extends State<Readmore> {
-  final List<String> mglist = ['assets/123.jpg'];
+  final List<String> mglist = [
+    'https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/7n70mucgwy3l0ijy_1645691721.jpeg',
+    'https://images.theconversation.com/files/447831/original/file-20220222-21-t0yys5.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip',
+    'https://media.npr.org/assets/img/2022/04/02/ap22092669346647_custom-d02c34ee5522f96b9a523ee72b8417bda9408de1-s1100-c50.jpg',
+    'https://d1e00ek4ebabms.cloudfront.net/production/12054187-060e-4587-94f0-e6b249596977.jpg',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +29,13 @@ class _ReadmoreState extends State<Readmore> {
         backgroundColor: const Color(0xff111328),
       ),
       body: Container(
-        padding: EdgeInsets.all(10),
-        color: Color(0xff111328),
+        padding: const EdgeInsets.all(10),
+        color: const Color(0xff111328),
         child: SingleChildScrollView(
           child: Column(
             children: [
               Container(
-                margin: EdgeInsets.only(bottom: 20),
+                margin: const EdgeInsets.only(bottom: 20),
                 child: Stack(
                   clipBehavior: Clip.none,
                   children: [
@@ -44,8 +49,9 @@ class _ReadmoreState extends State<Readmore> {
                               enableInfiniteScroll: true,
                               reverse: false,
                               autoPlay: true,
-                              autoPlayInterval: Duration(seconds: 3),
-                              autoPlayAnimationDuration: Duration(milliseconds: 800),
+                              autoPlayInterval: const Duration(seconds: 3),
+                              autoPlayAnimationDuration:
+                                  const Duration(milliseconds: 800),
                               height: height,
                               viewportFraction: 1.0,
                               enlargeCenterPage: false,
@@ -55,7 +61,7 @@ class _ReadmoreState extends State<Readmore> {
                                 .map((item) => ClipRRect(
                                       borderRadius: BorderRadius.circular(20),
                                       child: Center(
-                                          child: Image.asset(
+                                          child: Image.network(
                                         item,
                                         fit: BoxFit.cover,
                                         height: height,
@@ -73,18 +79,18 @@ class _ReadmoreState extends State<Readmore> {
                       child: Container(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
+                          children: const [
                             Text(
                               "Ukraine and Russia war......",
-                              style: const TextStyle(
-                                  fontSize: 25, color: Colors.white),
+                              style:
+                                  TextStyle(fontSize: 25, color: Colors.white),
                             ),
                             SizedBox(
                               height: 10,
                             ),
                             Text(
                               "25-sep-2022",
-                              style: const TextStyle(
+                              style: TextStyle(
                                   fontSize: 15, color: Colors.blueGrey),
                             ),
                           ],
@@ -99,19 +105,19 @@ class _ReadmoreState extends State<Readmore> {
                           children: [
                             FloatingActionButton(
                               onPressed: () {},
-                              child: Icon(
+                              child: const Icon(
                                 Icons.thumb_up_alt_sharp,
                                 color: Colors.red,
                                 size: 30,
                               ),
                               backgroundColor: Colors.white,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 15,
                             ),
                             FloatingActionButton(
                               onPressed: () {},
-                              child: Icon(
+                              child: const Icon(
                                 Icons.bookmark,
                                 color: Colors.red,
                                 size: 30,
@@ -127,10 +133,10 @@ class _ReadmoreState extends State<Readmore> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
 
                 child: RichText(
-                  text: TextSpan(
+                  text: const TextSpan(
                     children: <TextSpan>[
                       TextSpan(
                           text: 'T',
